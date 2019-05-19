@@ -33,7 +33,7 @@ Now that you have the chef-repo ready to go, check out [Learn Chef](https://lear
 ![preview](./Images/chefflow.PNG)
 
 * task
-    *sub task
+    * sub task
     ```
     sub1 task
     ```
