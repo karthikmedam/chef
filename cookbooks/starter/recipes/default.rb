@@ -8,7 +8,7 @@
 # For more information, see the documentation: https://docs.chef.io/essentials_cookbook_recipes.html
 # Lets create a file
 file '/home/ubuntu' do
-  content 'This is a file'
+  content 'This is a file from chef'
   owner 'root'
   group 'root'
   mode '0755'

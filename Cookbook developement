@@ -1,0 +1,32 @@
+### cookbook development
+
+###Steps
+* use chef generators to create cookbook.
+* ensure you have chef and ruby extension in vscode
+
+### Understanding 
+* atomic unit work in chef is resource
+```
+resource 'name' development do 
+   attributes 'value'
+   action :type_of_action
+end
+```
+* example - DSL in chef 
+'''
+# apt-get install git
+
+Package 'installing git' do
+  package_name 'git'
+  action :install
+end
+'''
+once you finish your cookbook dev, you should upload your cookbook to chef server.
+This will be done by a chefdk component called as _berks_
+
+```
+    you need to be inside the 
+    cd <ccokbook>
+    berks install
+    berks upload
+```

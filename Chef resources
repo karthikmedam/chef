@@ -1,0 +1,15 @@
+* apt-get install git----
+'''
+Package 'installing git' do
+  package_name 'git'
+  action :install
+end
+'''
+* file creation -  if path is not specified, name is considered as path
+
+'''
+file 'name' do
+path '/home/ubuntu'
+action: create /touch will just create a file
+end
+'''
