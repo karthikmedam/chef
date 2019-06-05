@@ -9,5 +9,9 @@
 # failing recipe execution on unsupported platforms
 
 #If platform of the node is unsupported by my cookbook.i will have to fail.
---> in ansible we have fail module, in chef also resource raise/throw/fail 
-
+--> in ansible we have fail module, in chef also resource raise/throw/fail
+if node['platform_family'] == 'debian' || node['platform_family'] == 'redhat'
+    include_recipe 'first_chef::apache'
+    include_recipe 'first_chef::php'
+else 
+    #fail the resource

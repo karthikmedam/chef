@@ -34,6 +34,7 @@ apt_update ‘update packages1’ do
 	action :update
 	only_if node[‘platform’] == ‘debian’
 end
+#-----------------------------------------------------
 #Similarly we can also write
 If node[‘platform’] == ‘debian’
 	apt_update ‘update packages’ do
@@ -42,3 +43,13 @@ If node[‘platform’] == ‘debian’
 	end
 end
 
+#attibutes
+package_name = node['first_chef']['apache_package_name']
+
+package package_name do 
+    action :install
+end
+
+service 'package_name' do
+    action :restart
+end
