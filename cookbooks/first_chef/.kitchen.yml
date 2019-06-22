@@ -1,13 +1,14 @@
 ---
 driver:
   name: ec2
-  aws_ssh_key_id: chef # key pair name
-  region: us-east-1 # region code of aws
-  availability_zone: us-east-1b # availability_zone of us-west
-  subnet_id: subnet-23c3137f # subnet-id noted from above steps
+  aws_ssh_key_id: chef_newaws # key pair name
+  region: ap-south-1 # region code of aws
+  availability_zone: ap-south-1b # availability_zone of us-west
+  subnet_id: subnet-ebe669a7 # subnet-id noted from above steps
   instance_type: t2.micro # as it is free instance type
-  image_id: ami-0565af6e282977273 # image id of ubuntu
-  security_group_ids: ["sg-0682c5ba6cc04ce64"]
+  image_id: ami-5b673c34 # image id of redhat 7
+  #image_id: ami-0565af6e282977273 # image id of ubuntu
+  security_group_ids: ["sg-098fdff61a8476c92"]
 
 
 provisioner:
@@ -21,13 +22,14 @@ verifier:
   name: inspec
 
 transport:
-  ssh_key: ./chef.pem # relative path to pem file
+  ssh_key: ./chef_newaws.pem # relative path to pem file
   connection_timeout: 10
   connection_retries: 5
-  username: ubuntu # username from ami-id
+ # username: ubuntu # username from ami-id
+  username: ec2-user # username from ami-id
 
 platforms:
-  - name: ubuntu-16.04
+  - name: redhat-7.5
 
 suites:
 - name: default

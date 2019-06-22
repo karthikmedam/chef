@@ -21,3 +21,15 @@ sudo nano /var/www/html/info.php
 # ?>
 http://
 ```
+https://github.com/chefosaurus/easy-windows-chef-workstation
+https://github.com/Nordstrom/chefdk_bootstrap
+# Install the ChefDK
+remote_file 'C:\Users\user\Downloads/ChefDK.msi' do
+  action :create
+  source 'https://opscode-omnibus-packages.s3.amazonaws.com/windows/2008r2/x86_64/chefdk-0.6.0-1.msi'
+end
+
+windows_package "ChefDK" do
+  action :install
+  source 'C:\Users\user\Downloads/ChefDK.msi'
+end
