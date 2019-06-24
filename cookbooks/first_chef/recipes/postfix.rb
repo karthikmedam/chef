@@ -15,14 +15,22 @@ end
 rpm_package '/tmp/postfix-3.4.5-4.1.i586.rpm' do
     action :install
   end
+yum_package 'postfix' do
+    action :install
+end
+
 #To change the configurations:
-template "/etc/postfix/main.cf" do
-    source "php.conf.erb"
-  end
-  
+cookbook_file '/etc/postfix/main.cf' do
+    source 'postfix.conf'
+    owner 'root'
+    group 'root'
+    mode '0755'
+    action :create
+end
+
 #To start the service
 service 'postfix' do
-    action :start
+    action [ :enable :start]
 end
 
 
